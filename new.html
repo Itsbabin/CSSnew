@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body , div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            /* border: solid 2px black; */
+        }
+        div{
+            height: 100px;
+            width: 200px;
+            border: solid 2px black;
+            border-radius: 10px;
+        }
+        button{
+            padding: 5px 50px ;
+            border-radius: 5px;
+            color: black;
+            overflow: hidden;
+            position: absolute;
+        }
+        button:hover{
+            color: aliceblue;
+        }
+        button::after , button::before , span::after ,span::before{
+            content: "";
+            position: absolute;
+            width: 25%;
+            height: 100%;
+            background-color: black;
+           
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div><button><span>Button</span></button></div>
+</body>
+</html>

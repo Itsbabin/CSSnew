@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandal Meat shop</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(115, 112, 112);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(38, 37, 37);
+        }
+
+        .head::before {
+            background-image: url(https://wallpapercave.com/wp/wp9326432.jpg);
+            content: "";
+            position: absolute;
+            height: 160vh;
+            width: 100%;
+            background-repeat: repeat-y;
+            background-attachment: fixed;
+            background-size: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .head {
+
+            color: rgb(240, 248, 255);
+            text-shadow: 4px 4px 4px black;
+        }
+
+        #heading {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 3px solid aliceblue;
+            padding: 8px;
+            box-shadow: inset -2px -2px 4px black;
+            text-align: center;
+        }
+
+        body {
+            background-color: black;
+            height: 200px;
+        }
+
+        #navbar {
+            display: flex;
+            border-bottom: 3px solid aliceblue;
+            padding: 4px;
+            justify-content: space-between;
+            box-shadow: 2px 2px 4px black;
+            padding: 5px 0px;
+            align-items: center;
+        }
+
+        .sing,.but {
+            /* border: 2px solid aliceblue; */
+            display: flex;
+            padding: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: aliceblue;
+            padding: 5px 20px;
+            margin: 10px 5px;
+            font-size: large;
+
+        }
+
+        a:hover {
+            border-radius: 10px;
+            background-color: rgba(220, 210, 196, 0.381);
+            transition: background-color;
+            transition-duration: 0.7s;
+        }
+
+        .content {
+            display: flex;
+            /* border: 2px solid white; */
+            margin-top: 2px;
+            justify-content: space-between;
+            height: 500px;
+            border-bottom: 3px solid aliceblue;
+        }
+
+        .rates {
+            border: 2px solid rgba(255, 255, 255, 0.137);
+            display: flex;
+            justify-content: space-around;
+            height: 98%;
+            width: 150px;
+            flex-wrap: wrap;
+            overflow-y: auto;
+            margin: 5px;
+            border-radius: 5px;
+            box-shadow: -4px -4px 4px black;
+            flex-shrink: 0;
+
+        }
+
+        .card {
+            background-color: aliceblue;
+            height: 120px;
+            width: 120px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            color: aliceblue;
+            text-shadow: 4px 4px 4px black;
+        }
+
+        .about {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            flex-shrink: 100;
+            /* border: 2px solid aliceblue; */
+            color: aliceblue;
+            overflow-y: auto;
+            padding: 8px;
+            margin-top: 5px;
+            box-shadow: 4px -4px 4px black;
+            text-align: center;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        h4 {
+            text-decoration: underline aliceblue;
+            height: 10px;
+        }
+
+        .last {
+            color: aliceblue;
+        }
+
+        #last {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+        }
+
+        #para {
+            padding: 20px 0px;
+            width: 50%;
+            color: aliceblue;
+            text-align: center;
+        }
+
+        .wellcome {
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            justify-content: center;
+            align-items: center;
+            color: aliceblue;
+            text-align: center;
+        }
+
+        @media screen and (max-width:700px) and (min-width:50px) {
+
+            /* .card{
+                background-color: aqua;
+            } */
+            #navbar {
+                flex-direction: column;
+            }
+
+            a {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <div id="heading">
+            <h1> MANDAL MEAT SHOP </h1>
+        </div>
+        <div id="navbar">
+            <div class="but">
+                <div class="btn"><a href="#">Home</a></div>
+                <div class="btn"><a href="#">Orders</a></div>
+                <div class="btn"><a href="#">Marchant</a></div>
+                <div class="btn"><a href="#">Profile</a></div>
+            </div>
+            <div class="sing">
+                <div class="btn"><a href="#">Sing in</a></div>
+                <div class="btn"><a href="#">Sing in</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="wellcome">
+        <h2>WellCome</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, iure. Nihil possimus, consequatur iusto eaque
+            optio corrupti fuga voluptas, consectetur necessitatibus eos nisi!</p>
+    </div>
+    <div class="content">
+        <div class="about">
+            <h4>About Content</h4>
+            <p>ipsum dolor, sit amet consectetur adipisicing elit. Esse facere eius veritatis praesentium a aut
+                explicabo ipsam laborum iure reprehenderit error animi ea libero expedita provident fuga labore adipisci
+                exercitationem dignissimos cupiditate, perferendis architecto ratione doloremque? Mollitia labore
+                assumenda iusto unde quae nihil dignissimos praesentium debitis, consequuntur ab distinctio rem sint
+                incidunt vitae nobis consectetur, necessitatibus velit nesciunt eos harum, sequi quisquam qui? Labore
+                quisquam animi voluptatem, aperiam quasi eos odio autem, maiores, architecto deserunt voluptate magni
+                praesentium harum tenetur dolorum accusamus impedit. Dignissimos similique id laborum, incidunt magnam
+                amet, exercitationem obcaecati deleniti aliquam dolor at doloremque vero modi eligendi accusamus ipsa
+                harum ullam nisi cupiditate quas. Odio repellat dolores placeat eos voluptatum ut expedita, aut aperiam
+                quae sunt architecto vel suscipit, unde velit nisi voluptatibus adipisci natus? Officia unde aliquam,
+                qui aut illum commodi soluta veritatis accusantium inventore explicabo, quas blanditiis vero maxime
+                perferendis. Rerum ab odit sint aut. Culpa error exercitationem iste quaerat in fuga repellat eius
+                recusandae nihil dicta doloremque consequatur ab corporis nisi explicabo praesentium ducimus, ipsam ut
+                beatae distinctio itaque quisquam, aperiam reprehenderit? Iusto, quae nam odio cumque labore perferendis
+                nobis, ullam perspiciatis neque sapiente, aliquam ad ipsum asperiores qui enim voluptas fugit dolorum
+                esse. Aut dolores dignissimos eveniet autem incidunt ipsum deleniti excepturi tenetur, blanditiis quas
+                eos ea dolore quam maxime eius aliquam officiis, unde, sed ipsam at! Corrupti expedita dolore
+                dignissimos et ex aliquid architecto perferendis quae possimus, accusantium, inventore unde esse ducimus
+                reiciendis. Accusantium voluptatum ad quidem eveniet quo culpa, nisi magni? Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Impedit illo similique enim ab non quod, aspernatur neque voluptas unde
+                eius corporis optio laboriosam quo minima magnam iure fugiat cumque in commodi eveniet ipsam natus sed
+                repellendus labore? Ad nostrum illum nisi iusto fugit et voluptatem labore odit nulla nihil tempore iste
+                minima, dolorem aspernatur laborum aliquid qui deleniti consectetur? Unde error incidunt, nostrum soluta
+                praesentium ratione est provident. Consequuntur doloremque reiciendis explicabo iste dolore ducimus
+                repellendus, unde eveniet provident animi tenetur quae esse officia laboriosam voluptatibus incidunt
+                illo laudantium? Labore pariatur, commodi molestias nesciunt aut expedita sint autem laboriosam esse
+                quibusdam excepturi sapiente quaerat suscipit beatae hic magni accusantium omnis odit fuga non earum
+                quam officiis iusto! Animi necessitatibus exercitationem eligendi quisquam numquam error quam dolor odio
+                distinctio et suscipit tempore, dolorum ducimus? Consequuntur consequatur veniam, nostrum fugit ad
+                deserunt obcaecati expedita et iure aperiam voluptate pariatur non aliquid assumenda magni, molestias
+                accusamus optio quisquam. Odit magnam qui nobis in, optio rerum maxime hic officia accusantium velit.
+                Nulla beatae iusto commodi soluta, provident aperiam voluptate aliquid similique obcaecati rem iste
+                architecto et incidunt aliquam quae laborum, neque, dignissimos sunt. Numquam qui rerum molestiae
+                repudiandae, sed modi repellendus quos hic autem!</p>
+        </div>
+        <div class="rates">
+            <h3>Today's rates</h3>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </div>
+    <div id="last">
+        <div id="para">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. dolores! Impedit velit natus eaque vitae amet
+                provident odio expedita labore?</p>
+        </div>
+        <div id="logo"><img
+                src="http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQl-AvDEkYrbjpQV7OPMY0MZXzakCEfBfvtPmuoTrjtA5G2W9juFHfhgvUUHFoDil650lX2SqzDMZTCICB2jv25H6V6xsqefJ0lgR4oyStk"
+                alt="chicken" /></div>
+    </div>
+
+</body>
+
+</html>
