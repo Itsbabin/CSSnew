@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <style>
+        :root {
+            --bgcolor: #000000;
+            --bgcolor2 : #151515;
+            --bgcolor3 : #242424;
+            --fontcolor : #ffffffb7;
+            --fontcolor2 : #ffffff;
+            --fontcolortitle : aliceblue;
+        }
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 18px;
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(69, 69, 69);
+
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(117, 117, 117);
+        }
+
+        .nav {
+            height: 92px;
+            width: 100vw;
+            background-color: var(--bgcolor);
+            position: fixed;
+            bottom: 0px;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: space-around;
+            background-color: #000000;
+            padding-top: 5vh;
+        }
+        .left,
+        .middle,
+        .right {
+            height: 85vh;
+            background-color: var(--bgcolor2);
+            border-radius: 1rem;
+        }
+
+        .left {
+            width: 24%;
+            background-color: var(--bgcolor);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            color: var(--fontcolor);
+        }
+
+        .middle {
+            width: 47%;
+        }
+
+        .right {
+            width: 28%;
+        }
+
+        header {
+            height: 4.5vh;
+            width: 100vw;
+            background-color: var(--bgcolor);
+            color: var(--fontcolor2);
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+        }
+
+        .lefttop {
+            height: 13vh;
+            background-color: var(--bgcolor2);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+        }
+
+        .lefttop p {
+            height: 50px;
+            width: 100%;
+            font-size: 1.2rem;
+            padding-left: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        .lefttop svg {
+            height: 20px;
+            fill:var(--fontcolor);
+        }
+        svg{
+            fill:var(--fontcolor);
+        }
+        .leftbottom {
+            height: 71vh;
+            background-color: var(--bgcolor2);
+            border-radius: 1rem;
+        }
+
+        .topicons {
+            width: 8.3rem;
+            display: flex;
+            justify-content: space-around;
+            padding: 5px 10px;
+        }
+
+        .min,
+        .wide,
+        .close {
+            width: 20px;
+            padding: 3px;
+        }
+        .dot{
+            font-size: 1.4rem;
+            margin-left: 1rem;
+        }
+        .plush{
+            font-size: 2rem;
+        }
+        .leftnav{
+            position: sticky;
+            display: flex;
+            flex-direction: column;
+            color: var(--fontcolor);
+        }
+        .bottomicon{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+        }
+        .library svg{
+            margin-right: 0.5rem;
+            height: fit-content;
+        }
+        .righticon{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .catagory{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.7rem;
+            padding: 0.5rem 0.5rem;
+        }
+        .catagory .text{
+            background-color: var(--bgcolor3);
+            padding: 0.4rem 0.7rem;
+            color: aliceblue;
+            border-radius: 1rem;
+        }
+        #recentoption{
+            background-color: var(--bgcolor2);
+            height: 2rem;
+            border: none;
+            outline-style: none;
+            font-size: 1rem;
+            padding: 0.5rem;
+            text-align: end;
+            width: 10rem;
+            color: var(--fontcolor);
+        }
+        .listtop{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.7rem 0.6rem;
+        }
+        .search svg{
+            height: 1.3rem;
+            margin-left: 0.6rem;
+        }
+        optgroup{
+            background-color:var(--bgcolor3);
+        }
+        .leftlist{
+            display: flex;
+            flex-direction: column;
+            height: 62vh;
+            overflow: scroll;
+        }
+        .item{
+            flex: 0 0 auto;
+            height: 65px;
+            width: 97%;
+            margin: 0.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            padding: 0.4rem 0.8rem;
+        }
+        .image{
+            height: 55px;
+            width: 55px;
+            background-size: contain;
+        }
+        .image1{
+            background-image: url("./image1.png");
+        }
+        .image2{
+            background-image: url("./image2.png");
+            border-radius: 50%;
+        }
+        .image3{
+            background-image: url("./image3.png");
+            border-radius: 50%;
+        }
+        .image4{
+            background-image: url("./image4.png");
+            border-radius: 50%;
+        }
+        .image6{
+            background-image: url("./image6.png");
+            border-radius: 50%;
+        }
+        .image7{
+            background-image: url("./image7.png");
+            border-radius: 50%;
+        }
+        .image8{
+            background-image: url("./image8.png");
+        }
+        .image5{
+            background-image: url("./image5.png");
+        }
+        .item .title{
+            color: var(--fontcolortitle);
+            font-size: large;
+            font-weight: bold;
+        }
+        .liked{
+            background: linear-gradient(135deg, rgb(81, 26, 178), rgb(86, 242, 216));
+        }
+        .liked svg{
+            padding: 20% 0px 0px 20%;
+        }
+        .songtitle{
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .middle{
+            height: 83.8vh;
+
+        }
+        .middlenav{
+            background-color: transparent;
+            width: 100%;
+            height: 7vh;
+            position: sticky;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--fontcolor2);
+        }
+        .arrow{
+            height: 7vh;
+            width: 7rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-left: 0.4rem;
+        }
+       .arrow svg{
+            width: 1rem;
+       }
+       .tarrow{
+        width: 2rem;
+        height: 2rem;
+        background-color: #000000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+       .forrotate{
+        rotate: 180deg;
+       }
+       .profile{
+        width: 17rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+       }
+       .logo2, .logo1{
+            background-color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.4rem 0.2rem 0.2rem 0.4rem;
+            border-radius: 50%;
+       }
+       .logo2 svg{
+         translate: 4px 3px;
+       }
+       .explore{
+        background-color: #ffffff;
+        color: #000000;
+        padding: 0.5rem 1.4rem;
+        text-align: center;
+        border-radius: 1.5rem;
+        font-weight: bold;
+       }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="dot"><strong>...</strong></div>
+        <div class="topicons">
+            <div class="min"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-minus">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg></div>
+            <div class="wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-x">
+                <line x1="6" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="18" x2="18" y2="18"></line>
+                <line x1="18" y1="18" x2="18" y2="6"></line>
+                <line x1="6" y1="6" x2="18" y2="6"></line>
+
+
+                <line x1="8" y1="6" x2="8" y2="3"></line>
+                <line x1="8" y1="3" x2="21" y2="3"></line>
+                <line x1="21" y1="3" x2="21" y2="16"></line>
+                <line x1="21" y1="16" x2="18" y2="16"></line>
+            </svg></div>
+            <div class="close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg></div>
+        </div>
+    </header>
+    <div class="nav">
+        <div class="songicon"></div>
+        <div class="player"></div>
+        <div class="navbutton"></div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <div class="lefttop">
+                <p><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M21.8,6.78,13.68,1.49a3.1,3.1,0,0,0-3.36,0L2.2,6.78A2.46,2.46,0,0,0,1,8.84V23h9V17.43h4V23h9V8.84A2.46,2.46,0,0,0,21.8,6.78ZM21,21H16V15.43H8V21H3V8.84a.49.49,0,0,1,.26-.39l8.12-5.29a1.14,1.14,0,0,1,1.18,0l8.12,5.29a.49.49,0,0,1,.26.39Z" />
+                    </svg> Home</p>
+                <p><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+                        <g>
+                            <path
+                                d="M51.6,96.7c11,0,21-3.9,28.8-10.5l35,35c0.8,0.8,1.8,1.2,2.9,1.2s2.1-0.4,2.9-1.2c1.6-1.6,1.6-4.2,0-5.8l-35-35   c6.5-7.8,10.5-17.9,10.5-28.8c0-24.9-20.2-45.1-45.1-45.1C26.8,6.5,6.5,26.8,6.5,51.6C6.5,76.5,26.8,96.7,51.6,96.7z M51.6,14.7   c20.4,0,36.9,16.6,36.9,36.9C88.5,72,72,88.5,51.6,88.5c-20.4,0-36.9-16.6-36.9-36.9C14.7,31.3,31.3,14.7,51.6,14.7z" />
+                        </g>
+                    </svg> Search</p>
+            </div>
+            <div class="leftbottom">
+                <div class="leftnav">
+                    <div class="bottomicon">
+                        <div class="library"><svg 
+                            xmlns:dc="http://purl.org/dc/elements/1.1/"
+                            xmlns:cc="http://creativecommons.org/ns#"
+                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                            xmlns:svg="http://www.w3.org/2000/svg"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 30 30"
+                            version="1.1"
+                            id="svg822"
+                            inkscape:version="0.92.4 (f8dce91, 2019-08-02)"
+                            sodipodi:docname="library.svg">
+                           <defs
+                              id="defs816" />
+                           <sodipodi:namedview
+                              id="base"
+                              pagecolor="#ffffff"
+                              bordercolor="#666666"
+                              borderopacity="1.0"
+                              inkscape:pageopacity="0.0"
+                              inkscape:pageshadow="2"
+                              inkscape:zoom="17.833333"
+                              inkscape:cx="15"
+                              inkscape:cy="15"
+                              inkscape:document-units="px"
+                              inkscape:current-layer="layer1"
+                              showgrid="true"
+                              units="px"
+                              inkscape:window-width="1366"
+                              inkscape:window-height="713"
+                              inkscape:window-x="0"
+                              inkscape:window-y="0"
+                              inkscape:window-maximized="1"
+                              showguides="false">
+                             <inkscape:grid
+                                type="xygrid"
+                                id="grid816" />
+                           </sodipodi:namedview>
+                           <metadata
+                              id="metadata819">
+                             <rdf:RDF>
+                               <cc:Work
+                                  rdf:about="">
+                                 <dc:format>image/svg+xml</dc:format>
+                                 <dc:type
+                                    rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                                 <dc:title>
+                         
+                         </dc:title>
+                               </cc:Work>
+                             </rdf:RDF>
+                           </metadata>
+                           <g
+                              inkscape:label="Layer 1"
+                              inkscape:groupmode="layer"
+                              id="layer1"
+                              transform="translate(0,-289.0625)">
+                             <rect
+                                style="opacity:1;fill:#ffffffc1;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.71555553"
+                                id="rect992"
+                                width="4"
+                                height="24"
+                                x="3"
+                                y="292.0625"
+                                rx="2"
+                                ry="1.9999999" />
+                             <rect
+                                ry="1.9999999"
+                                rx="2"
+                                y="292.0625"
+                                x="9"
+                                height="24"
+                                width="4"
+                                id="rect994"
+                                style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.71555553" />
+                             <rect
+                                style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.71555553"
+                                id="rect996"
+                                width="4"
+                                height="24"
+                                x="-86.261955"
+                                y="280.90771"
+                                rx="2"
+                                ry="1.9999999"
+                                transform="rotate(-20)" />
+                           </g>
+                         </svg>Your Library</div>
+                         <div class="righticon">
+                            <div class="plush">+</div>
+                            <div id="arrow"><svg width="40px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="#ffffff"/>
+                                </svg></div>
+                        </div>
+                    </div>
+                    <div class="catagory">
+                        <div class="text">Playlists</div>
+                        <div class="text">Albums</div>
+                        <div class="text">Artists</div>
+                    </div>
+                </div>
+                <div class="leftlist">
+                    <div class="listtop">
+                        <div class="search"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+                            <g>
+                              <path d="M51.6,96.7c11,0,21-3.9,28.8-10.5l35,35c0.8,0.8,1.8,1.2,2.9,1.2s2.1-0.4,2.9-1.2c1.6-1.6,1.6-4.2,0-5.8l-35-35   c6.5-7.8,10.5-17.9,10.5-28.8c0-24.9-20.2-45.1-45.1-45.1C26.8,6.5,6.5,26.8,6.5,51.6C6.5,76.5,26.8,96.7,51.6,96.7z M51.6,14.7   c20.4,0,36.9,16.6,36.9,36.9C88.5,72,72,88.5,51.6,88.5c-20.4,0-36.9-16.6-36.9-36.9C14.7,31.3,31.3,14.7,51.6,14.7z"/>
+                            </g>
+                          </svg>
+                          </div>
+                        <div class="recent">
+                            <select name="recentoption" id="recentoption">Recent
+                                <optgroup label="sort by">
+                                    <option value="Recent">Recent</option>
+                                    <option value="Recently added">Recently added</option>
+                                    <option value="Alphabetical">Alphabetical</option>
+                                    <option value="Creator">Creator</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image liked"><svg width="55px" height="55px" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet"><path fill="#ffffff" d="M35.885 11.833c0-5.45-4.418-9.868-9.867-9.868c-3.308 0-6.227 1.633-8.018 4.129c-1.791-2.496-4.71-4.129-8.017-4.129c-5.45 0-9.868 4.417-9.868 9.868c0 .772.098 1.52.266 2.241C1.751 22.587 11.216 31.568 18 34.034c6.783-2.466 16.249-11.447 17.617-19.959c.17-.721.268-1.469.268-2.242z"></path></svg></div>
+                        <div class="songtitle">
+                            <div class="title">Liked Songs</div>
+                            <div class="description">Playlist <strong>.</strong> 38 songs</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image image1"></div>
+                        <div class="songtitle">
+                            <div class="title">DHH</div>
+                            <div class="description">Playlist</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image image2"></div>
+                        <div class="songtitle">
+                            <div class="title">Talha Anjum</div>
+                            <div class="description">Artist</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image image3"></div>
+                        <div class="songtitle">
+                            <div class="title">Paradox</div>
+                            <div class="description">Artist</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image image4"></div>
+                        <div class="songtitle">
+                            <div class="title">Seedhe Maut</div>
+                            <div class="description">Artist</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image image5"></div>
+                        <div class="songtitle">
+                            <div class="title">Commercial Banger (Lang -english)</div>
+                            <div class="description">Playlist</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image image6"></div>
+                        <div class="songtitle">
+                            <div class="title">KR$NA</div>
+                            <div class="description">Artist</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image image7"></div>
+                        <div class="songtitle">
+                            <div class="title">Alas Ka Pedh</div>
+                            <div class="description">Playlist</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image image8"></div>
+                        <div class="songtitle">
+                            <div class="title">Boht Tej</div>
+                            <div class="description">Playlist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="middlenav">
+                <div class="arrow">
+                    <div class="tarrow forrotate"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff"
+                        stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-x">
+                        <line x1="18" y1="12" x2="6" y2="25"></line>
+                        <line x1="6" y1="1" x2="18" y2="12"></line>
+                    </svg> </div>
+                    <div class="tarrow"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff"
+                        stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-x">
+                        <line x1="18" y1="12" x2="6" y2="25"></line>
+                        <line x1="6" y1="1" x2="18" y2="12"></line>
+                    </svg> </div>
+                </div>
+                <div class="profile">
+                    <div class="explore">Explore Prime</div>
+                    <div class="logo1"><svg fill="#000000" height="28px" width="28px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        viewBox="0 0 35 35" xml:space="preserve">
+                   <g id="group">
+                       <path d="M24,15.9c0-2.8-1.5-5-3.7-6.1C21.3,8.8,22,7.5,22,6c0-2.8-2.2-5-5-5c-2.1,0-3.8,1.2-4.6,3c0,0,0,0,0,0c-0.1,0-0.3,0-0.4,0
+                           c-0.1,0-0.3,0-0.4,0c0,0,0,0,0,0C10.8,2.2,9.1,1,7,1C4.2,1,2,3.2,2,6c0,1.5,0.7,2.8,1.7,3.8C1.5,10.9,0,13.2,0,15.9V20h5v3h14v-3h5
+                           V15.9z M17,3c1.7,0,3,1.3,3,3c0,1.6-1.3,3-3,3c0-1.9-1.1-3.5-2.7-4.4c0,0,0,0,0,0C14.8,3.6,15.8,3,17,3z M13.4,4.2
+                           C13.4,4.2,13.4,4.2,13.4,4.2C13.4,4.2,13.4,4.2,13.4,4.2z M15,9c0,1.7-1.3,3-3,3s-3-1.3-3-3s1.3-3,3-3S15,7.3,15,9z M10.6,4.2
+                           C10.6,4.2,10.6,4.2,10.6,4.2C10.6,4.2,10.6,4.2,10.6,4.2z M7,3c1.2,0,2.2,0.6,2.7,1.6C8.1,5.5,7,7.1,7,9C5.3,9,4,7.7,4,6S5.3,3,7,3
+                           z M5.1,18H2v-2.1C2,13.1,4.1,11,7,11v0c0,0,0,0,0,0c0.1,0,0.2,0,0.3,0c0,0,0,0,0,0c0.3,0.7,0.8,1.3,1.3,1.8
+                           C6.7,13.8,5.4,15.7,5.1,18z M17,21H7v-2.1c0-2.8,2.2-4.9,5-4.9c2.9,0,5,2.1,5,4.9V21z M22,18h-3.1c-0.3-2.3-1.7-4.2-3.7-5.2
+                           c0.6-0.5,1-1.1,1.3-1.8c0.1,0,0.2,0,0.4,0v0c2.9,0,5,2.1,5,4.9V18z"/>
+                   </g>
+                   </svg></div>
+                    <div class="logo2"><svg width="30px" height="30px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <defs>
+                    </defs>
+                        <g id="Page-1" stroke="#ffffff" stroke-width="0.3" fill="#000000" >
+                            <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -2159.000000)" fill="#ffffff">
+                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                    <path d="M100.562548,2016.99998 L87.4381713,2016.99998 C86.7317804,2016.99998 86.2101535,2016.30298 86.4765813,2015.66198 C87.7127655,2012.69798 90.6169306,2010.99998 93.9998492,2010.99998 C97.3837885,2010.99998 100.287954,2012.69798 101.524138,2015.66198 C101.790566,2016.30298 101.268939,2016.99998 100.562548,2016.99998 M89.9166645,2004.99998 C89.9166645,2002.79398 91.7489936,2000.99998 93.9998492,2000.99998 C96.2517256,2000.99998 98.0830339,2002.79398 98.0830339,2004.99998 C98.0830339,2007.20598 96.2517256,2008.99998 93.9998492,2008.99998 C91.7489936,2008.99998 89.9166645,2007.20598 89.9166645,2004.99998 M103.955674,2016.63598 C103.213556,2013.27698 100.892265,2010.79798 97.837022,2009.67298 C99.4560048,2008.39598 100.400241,2006.33098 100.053171,2004.06998 C99.6509769,2001.44698 97.4235996,1999.34798 94.7348224,1999.04198 C91.0232075,1998.61898 87.8750721,2001.44898 87.8750721,2004.99998 C87.8750721,2006.88998 88.7692896,2008.57398 90.1636971,2009.67298 C87.1074334,2010.79798 84.7871636,2013.27698 84.044024,2016.63598 C83.7745338,2017.85698 84.7789973,2018.99998 86.0539717,2018.99998 L101.945727,2018.99998 C103.221722,2018.99998 104.226185,2017.85698 103.955674,2016.63598" id="profile_round-[#1342]">
+                    
+                    </path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg></div>
+                </div>
+            </div>
+        </div>
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>
